@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`formatYamlError Error Formatting should format errors in arrays 1`] = `
+"  1 | - id: 1
+> 2 |   value: ok
+>   |        ^ Too small: expected string to have >=3 characters
+  3 | - id: 2
+  4 |   value: 'no'"
+`;
+
+exports[`formatYamlError Error Formatting should format errors in arrays 2`] = `
+"  3 | - id: 2
+> 4 |   value: 'no'
+>   |        ^ Too small: expected string to have >=3 characters
+  5 | - id: three
+  6 |   value: valid"
+`;
+
+exports[`formatYamlError Error Formatting should format errors in arrays 3`] = `
+"  4 |   value: 'no'
+> 5 | - id: three
+>   |     ^ Invalid input: expected number, received string
+  6 |   value: valid
+  7 | "
+`;
+
+exports[`formatYamlError Error Formatting should format errors with code frames 1`] = `
+"  1 | name: John Doe
+> 2 | age: -5
+>   |    ^ Too small: expected number to be >=0
+  3 | address:
+  4 |   street: 123 Main St"
+`;
+
+exports[`formatYamlError Error Formatting should format errors with code frames 2`] = `
+"  4 |   street: 123 Main St
+> 5 |   city: 456
+>   |       ^ Invalid input: expected string, received number
+  6 | "
+`;
+
+exports[`formatYamlError Error Formatting should handle nested errors correctly 1`] = `
+"  1 | user:
+> 2 |   id: invalid-uuid
+>   |     ^ Invalid UUID
+  3 |   profile:
+  4 |     email: not-an-email"
+`;
+
+exports[`formatYamlError Error Formatting should handle nested errors correctly 2`] = `
+"  3 |   profile:
+> 4 |     email: not-an-email
+>   |          ^ Invalid email address
+  5 | "
+`;
+
+exports[`formatYamlError Error Formatting should handle root level errors 1`] = `
+"> 1 | -1
+>   | ^ Too small: expected number to be >=0
+  2 | "
+`;
+
+exports[`formatYamlError Error Formatting should handle root level errors 2`] = `
+"> 1 | 'no'
+>   | ^ Too small: expected string to have >=3 characters
+  2 | "
+`;
+
+exports[`formatYamlError Error Formatting should handle root level errors 3`] = `
+"  1 | - true
+> 2 | - 'false'
+>   |          ^ Invalid input: expected boolean, received string
+  3 | - 123
+  4 | "
+`;
+
+exports[`formatYamlError Error Formatting should handle root level errors 4`] = `
+"  2 | - 'false'
+> 3 | - 123
+>   |      ^ Invalid input: expected boolean, received number
+  4 | "
+`;
