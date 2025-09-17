@@ -8,6 +8,12 @@ dependencies:
   '@atlaspack/codeframe':
     specifier: ^2.13.13
     version: 2.13.13
+  js-yaml:
+    specifier: ^4.1.0
+    version: 4.1.0
+  js-yaml-source-map:
+    specifier: ^0.2.2
+    version: 0.2.2(js-yaml@4.1.0)
   json-source-map:
     specifier: ^0.6.1
     version: 0.6.1
@@ -37,6 +43,9 @@ devDependencies:
   '@types/jest':
     specifier: ^30.0.0
     version: 30.0.0
+  '@types/js-yaml':
+    specifier: ^4.0.9
+    version: 4.0.9
   '@types/json-source-map':
     specifier: ^0.6.0
     version: 0.6.0
@@ -1403,6 +1412,10 @@ packages:
       pretty-format: 30.0.5
     dev: true
 
+  /@types/js-yaml@4.0.9:
+    resolution: {integrity: sha512-k4MGaQl5TGo/iipqb2UDG2UwjXziSWkh0uysQelTlJpX1qGlpUZYm8PnO4DxG1qBomtJUdYJ6qR6xdIah10JLg==}
+    dev: true
+
   /@types/json-source-map@0.6.0:
     resolution: {integrity: sha512-5RTx9KQi42g0knHvHM9+f6V5B17S22ZFyoDfabgHLhnWa/5ST1UCDpuda/AaUIyHX1pLxwFZKcScM2sytz9OEQ==}
     dev: true
@@ -1698,7 +1711,6 @@ packages:
 
   /argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
-    dev: true
 
   /argv-formatter@1.0.0:
     resolution: {integrity: sha512-F2+Hkm9xFaRg+GkaNnbwXNDV5O6pnCFEmqyhvfC/Ic5LbgOWjJh3L+mN/s91rxVL3znE7DYVpW0GJFT+4YBgWw==}
@@ -3283,6 +3295,14 @@ packages:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
     dev: true
 
+  /js-yaml-source-map@0.2.2(js-yaml@4.1.0):
+    resolution: {integrity: sha512-z45Aww8oXJh9GuWUnwmvHsAkB7I/oWrkoHU554UQ8Ik4dyhVrk/nwClTI435feU7QIy7E0XaW8jHvZ4QxaAjog==}
+    peerDependencies:
+      js-yaml: ^4.0.0
+    dependencies:
+      js-yaml: 4.1.0
+    dev: false
+
   /js-yaml@3.14.1:
     resolution: {integrity: sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==}
     hasBin: true
@@ -3296,7 +3316,6 @@ packages:
     hasBin: true
     dependencies:
       argparse: 2.0.1
-    dev: true
 
   /jsesc@3.1.0:
     resolution: {integrity: sha512-/sM3dO2FOzXjKQhJuo0Q173wf2KOo8t4I8vHy6lF9poUp7bKT0/NHE8fPX23PwfhnykfqnC2xRxOnVw5XuGIaA==}
