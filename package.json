@@ -25,6 +25,7 @@
     "build": "tsdown",
     "dev": "tsdown --watch",
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "lint": "biome check"
   },
   "keywords": [],
