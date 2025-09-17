@@ -1,1 +1,1 @@
-export * from './formatErrors'
+export * from './formatError.ts'

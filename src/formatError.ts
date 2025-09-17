@@ -25,7 +25,7 @@ interface FormatErrorOptions {
   syntaxHighlighting?: boolean
 }
 
-export function formatErrors(
+export function formatError(
   issue: z.core.$ZodIssue,
   payload: number | bigint | boolean | string | object,
   options?: FormatErrorOptions,
