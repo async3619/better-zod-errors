@@ -23,15 +23,26 @@
   ],
   "scripts": {
     "build": "tsdown",
-    "dev": "tsdown --watch"
+    "dev": "tsdown --watch",
+    "test": "jest"
   },
   "keywords": [],
   "author": "Sophia <me@sophia-dev.io>",
   "license": "MIT",
   "devDependencies": {
     "@biomejs/biome": "2.2.4",
+    "@types/jest": "^30.0.0",
+    "@types/json-source-map": "^0.6.0",
     "@types/node": "^24.5.1",
+    "jest": "^30.1.3",
+    "ts-jest": "^29.4.2",
+    "ts-node": "^10.9.2",
     "tsdown": "^0.15.2",
     "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@atlaspack/codeframe": "^2.13.13",
+    "json-source-map": "^0.6.1",
+    "zod": "^4.1.9"
   }
 }
