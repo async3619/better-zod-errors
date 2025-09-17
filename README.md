@@ -41,11 +41,15 @@ $ pnpm add better-zod-errors
 
 ## Usage
 
-First, you need to validate your data using Zod schema. If validation fails, you can catch the `ZodError` and format the error messages using `formatError` function from this library.
+This library provides two main functions to format Zod errors with code frames:
+
+### JSON Format
+
+You can format JSON data validation errors using the `formatJsonError` function:
 
 ```typescript
 import { z } from "zod";
-import { formatError } from "better-zod-errors";
+import { formatJsonError } from "better-zod-errors";
 
 const schema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters long"),
@@ -62,8 +66,48 @@ try {
 } catch (e) {
   if (e instanceof z.ZodError) {
     for (const issue of e.issues) {
-      const formattedError = formatError(issue, payload);
+      const formattedError = formatJsonError(issue, payload);
       console.log(formattedError); // formatted error message with code frame
+    }
+  } else {
+    // handle other errors
+  }
+}
+```
+
+### YAML Format
+
+You can also format YAML data validation errors using the `formatYamlError` function:
+
+```typescript
+import { z } from "zod";
+import { formatYamlError } from "better-zod-errors";
+
+const schema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters long"),
+  age: z.number().min(0, "Age must be a positive number"),
+  address: z.object({
+    street: z.string(),
+    city: z.string(),
+  }),
+});
+
+const payload = {
+  name: "John",
+  age: -5,
+  address: {
+    street: "123 Main St",
+    city: 456, // Invalid type
+  },
+};
+
+try {
+  schema.parse(payload);
+} catch (e) {
+  if (e instanceof z.ZodError) {
+    for (const issue of e.issues) {
+      const formattedError = formatYamlError(issue, payload);
+      console.log(formattedError); // formatted YAML error message with code frame
     }
   } else {
     // handle other errors
@@ -73,7 +117,7 @@ try {
 
 ## API
 
-### `formatError(issue: z.ZodIssue, data: any, [options: FormatErrorOptions]): string`
+### `formatJsonError(issue: z.ZodIssue, data: any, [options: FormatJsonErrorOptions]): string`
 
 Formats a single Zod issue into a more readable error message with a code frame.
 
@@ -91,7 +135,7 @@ The original data that was validated. If the data was not matched with the origi
 
 #### `options`
 
-Type: `FormatErrorOptions` (optional)
+Type: `FormatJsonErrorOptions` (optional)
 
 ##### `useColor`
 
@@ -104,3 +148,35 @@ Whether to use ANSI colors in the output. Set to `false` to disable colors.
 Type: `boolean` (default: `true`)
 
 Whether to use syntax highlighting in the code frame. Set to `false` to disable syntax highlighting.
+
+### `formatYamlError(issue: z.ZodIssue, payload: any, [options: FormatYamlErrorOptions]): string`
+
+Formats a single Zod issue into a more readable error message with a YAML code frame.
+
+#### `issue`
+
+Type: `z.ZodIssue`
+
+The Zod issue to format thrown during validation with `ZodError`.
+
+#### `payload`
+
+Type: `number | bigint | boolean | string | object`
+
+The original data that was validated in YAML format. The function will serialize this data to YAML and create a source map to locate error positions.
+
+#### `options`
+
+Type: `FormatYamlErrorOptions` (optional)
+
+##### `useColor`
+
+Type: `boolean` (default: `true`)
+
+Whether to use ANSI colors in the output. Set to `false` to disable colors.
+
+##### `syntaxHighlighting`
+
+Type: `boolean` (default: `true`)
+
+Whether to use syntax highlighting in the YAML code frame. Set to `false` to disable syntax highlighting.

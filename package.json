@@ -39,6 +39,7 @@
     "@semantic-release/npm": "^12.0.2",
     "@semantic-release/release-notes-generator": "^14.1.0",
     "@types/jest": "^30.0.0",
+    "@types/js-yaml": "^4.0.9",
     "@types/json-source-map": "^0.6.0",
     "@types/node": "^24.5.1",
     "conventional-changelog-conventionalcommits": "^9.1.0",
@@ -51,6 +52,8 @@
   },
   "dependencies": {
     "@atlaspack/codeframe": "^2.13.13",
+    "js-yaml": "^4.1.0",
+    "js-yaml-source-map": "^0.2.2",
     "json-source-map": "^0.6.1",
     "zod": "^4.1.9"
   }
