@@ -1,7 +1,7 @@
 import z from 'zod'
-import { formatErrors } from './formatErrors'
+import { formatError } from './formatError.ts'
 
-describe('formatErrors', () => {
+describe('formatError', () => {
   describe('Error Formatting', () => {
     it('should format errors with code frames', () => {
       const schema = z.object({
@@ -26,7 +26,7 @@ describe('formatErrors', () => {
 
       if (!result.success) {
         const formattedErrors = result.error.issues.map((issue) =>
-          formatErrors(issue, payload, {
+          formatError(issue, payload, {
             useColor: false,
             syntaxHighlighting: false,
           }),
@@ -64,7 +64,7 @@ describe('formatErrors', () => {
 
       if (!result.success) {
         const formattedErrors = result.error.issues.map((issue) =>
-          formatErrors(issue, payload, {
+          formatError(issue, payload, {
             useColor: false,
             syntaxHighlighting: false,
           }),
@@ -96,7 +96,7 @@ describe('formatErrors', () => {
 
       if (!result.success) {
         const formattedErrors = result.error.issues.map((issue) =>
-          formatErrors(issue, payload, {
+          formatError(issue, payload, {
             useColor: false,
             syntaxHighlighting: false,
           }),
@@ -128,7 +128,7 @@ describe('formatErrors', () => {
         const result = schema.safeParse(payload)
         if (!result.success) {
           const formattedErrors = result.error.issues.map((issue) =>
-            formatErrors(issue, payload, {
+            formatError(issue, payload, {
               useColor: false,
               syntaxHighlighting: false,
             }),
@@ -162,11 +162,11 @@ describe('formatErrors', () => {
           throw new Error('No issues found in the error')
         }
 
-        const errorWithColor = formatErrors(issue, payload, {
+        const errorWithColor = formatError(issue, payload, {
           useColor: true,
           syntaxHighlighting: false,
         })
-        const errorWithoutColor = formatErrors(issue, payload, {
+        const errorWithoutColor = formatError(issue, payload, {
           useColor: false,
           syntaxHighlighting: false,
         })
@@ -196,11 +196,11 @@ describe('formatErrors', () => {
           throw new Error('No issues found in the error')
         }
 
-        const errorWithHighlighting = formatErrors(issue, payload, {
+        const errorWithHighlighting = formatError(issue, payload, {
           useColor: false,
           syntaxHighlighting: true,
         })
-        const errorWithoutHighlighting = formatErrors(issue, payload, {
+        const errorWithoutHighlighting = formatError(issue, payload, {
           useColor: false,
           syntaxHighlighting: false,
         })
@@ -234,7 +234,7 @@ describe('formatErrors', () => {
         }
 
         expect(() =>
-          formatErrors(issue, invalidPayload, {
+          formatError(issue, invalidPayload, {
             useColor: false,
             syntaxHighlighting: false,
           }),
