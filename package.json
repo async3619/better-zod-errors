@@ -24,7 +24,8 @@
   "scripts": {
     "build": "tsdown",
     "dev": "tsdown --watch",
-    "test": "jest"
+    "test": "jest",
+    "lint": "biome check"
   },
   "keywords": [],
   "author": "Sophia <me@sophia-dev.io>",
