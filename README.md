@@ -11,7 +11,13 @@
 
 <div align="center">
     <a href="https://github.com/async3619/better-zod-errors/blob/main/LICENSE">
-        <img src="https://img.shields.io/github/license/async3619/better-zod-errors.svg?style=flat-square" alt="MIT License" />
+        <img src="https://img.shields.io/github/license/async3619/better-zod-errors?style=flat-square" alt="MIT License" />
+    </a>
+    <a href="https://codecov.io/gh/async3619/better-zod-errors">
+        <img alt="Codecov" src="https://img.shields.io/codecov/c/github/async3619/better-zod-errors?style=flat-square">
+    </a>
+    <a href="https://www.npmjs.com/package/better-zod-errors">
+        <img alt="npm" src="https://img.shields.io/npm/v/better-zod-errors?style=flat-square" />
     </a>
     <br />
     <sup>formatted and more descriptive error messages for Zod validation</sup>
