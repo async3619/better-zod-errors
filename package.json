@@ -1,6 +1,6 @@
 {
   "name": "better-zod-errors",
-  "version": "1.0.0-dev.2",
+  "version": "1.0.0-dev.3",
   "description": "",
   "type": "module",
   "main": "./dist/index.cjs",
