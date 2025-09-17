@@ -20,15 +20,15 @@ function pathToPointer(path: PropertyKey[]): string {
   )
 }
 
-interface FormatErrorOptions {
+interface FormatJsonErrorOptions {
   useColor?: boolean
   syntaxHighlighting?: boolean
 }
 
-export function formatError(
+export function formatJsonError(
   issue: z.core.$ZodIssue,
   payload: number | bigint | boolean | string | object,
-  options?: FormatErrorOptions,
+  options?: FormatJsonErrorOptions,
 ): string {
   const { useColor = true, syntaxHighlighting = true } = options ?? {}
 

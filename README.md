@@ -41,11 +41,11 @@ $ pnpm add better-zod-errors
 
 ## Usage
 
-First, you need to validate your data using Zod schema. If validation fails, you can catch the `ZodError` and format the error messages using `formatError` function from this library.
+First, you need to validate your data using Zod schema. If validation fails, you can catch the `ZodError` and format the error messages using `formatJsonError` function from this library.
 
 ```typescript
 import { z } from "zod";
-import { formatError } from "better-zod-errors";
+import { formatJsonError } from "better-zod-errors";
 
 const schema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters long"),
@@ -62,7 +62,7 @@ try {
 } catch (e) {
   if (e instanceof z.ZodError) {
     for (const issue of e.issues) {
-      const formattedError = formatError(issue, payload);
+      const formattedError = formatJsonError(issue, payload);
       console.log(formattedError); // formatted error message with code frame
     }
   } else {
@@ -73,7 +73,7 @@ try {
 
 ## API
 
-### `formatError(issue: z.ZodIssue, data: any, [options: FormatErrorOptions]): string`
+### `formatJsonError(issue: z.ZodIssue, data: any, [options: FormatJsonErrorOptions]): string`
 
 Formats a single Zod issue into a more readable error message with a code frame.
 
@@ -91,7 +91,7 @@ The original data that was validated. If the data was not matched with the origi
 
 #### `options`
 
-Type: `FormatErrorOptions` (optional)
+Type: `FormatJsonErrorOptions` (optional)
 
 ##### `useColor`
 
