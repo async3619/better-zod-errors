@@ -1,0 +1,37 @@
+{
+  "name": "better-zod-errors",
+  "version": "0.1.0",
+  "description": "",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch"
+  },
+  "keywords": [],
+  "author": "Sophia <me@sophia-dev.io>",
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "2.2.4",
+    "@types/node": "^24.5.1",
+    "tsdown": "^0.15.2",
+    "typescript": "^5.9.2"
+  }
+}
